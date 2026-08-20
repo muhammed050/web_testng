@@ -12,7 +12,7 @@ A Next.js dashboard that turns Google Search Console and Google Analytics data i
 - Architecture ready for GA4 Data API, Supabase persistence, AI analysis and PDF/XLSX report generation
 
 ## Run
-```bash
+```bash 
 npm install
 cp .env.example .env.local
 npm run dev
