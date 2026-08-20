@@ -2,13 +2,15 @@ import { google } from 'googleapis'
 import crypto from 'node:crypto'
 import { cookies } from 'next/headers'
 
+// Keep OAuth scopes limited to APIs the dashboard actually uses.
+// analytics.admin.readonly is intentionally excluded because Google OAuth rejects
+// it for this consent configuration and it is not required to read GA4 data.
 const SCOPES = [
   'openid',
   'email',
   'profile',
   'https://www.googleapis.com/auth/webmasters.readonly',
   'https://www.googleapis.com/auth/analytics.readonly',
-  'https://www.googleapis.com/auth/analytics.admin.readonly',
 ]
 
 function oauth() {
