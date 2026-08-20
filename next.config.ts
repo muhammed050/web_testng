@@ -1,8 +1,9 @@
 import type { NextConfig } from 'next'
 
+const isVercel = process.env.VERCEL === '1'
+
 const nextConfig: NextConfig = {
-  // GitHub Pages needs the static export; Vercel must serve the app from root.
-  output: 'export',
+  ...(isVercel ? {} : { output: 'export', basePath: '/web_testng' }),
   images: { unoptimized: true },
 }
 
